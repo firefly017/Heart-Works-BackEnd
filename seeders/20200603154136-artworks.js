@@ -11,7 +11,7 @@ module.exports = {
           imageUrl: "https://picsum.photos/200/300",
           hearts: 0,
           minimumBid: 200,
-
+          // userId: user1.id,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -21,7 +21,7 @@ module.exports = {
           imageUrl: "https://picsum.photos/200/300",
           hearts: 0,
           minimumBid: 200,
-
+          // userId: user2.id,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -31,7 +31,7 @@ module.exports = {
           imageUrl: "https://picsum.photos/200/300",
           hearts: 0,
           minimumBid: 200,
-
+          // userId: user3.id,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
