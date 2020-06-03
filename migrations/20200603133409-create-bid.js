@@ -13,13 +13,13 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      amout: {
+      amount: {
         type: Sequelize.INTEGER,
         min: 0,
       },
-      artworkId: {
-        type: Sequelize.INTEGER,
-      },
+      // artworkId: {
+      //   type: Sequelize.INTEGER,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

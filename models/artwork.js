@@ -7,12 +7,13 @@ module.exports = (sequelize, DataTypes) => {
       imageUrl: { type: DataTypes.STRING, allowNull: false },
       hearts: { type: DataTypes.INTEGER, defaultValue: 0 },
       minimumBid: { type: DataTypes.INTEGER, min: 0 },
-      userId: DataTypes.INTEGER,
     },
     {}
   );
   artwork.associate = function (models) {
     // associations can be defined here
+    artwork.belongsTo(models.user);
+    artwork.hasMany(models.bid);
   };
   return artwork;
 };

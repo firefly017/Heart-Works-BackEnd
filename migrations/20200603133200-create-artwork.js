@@ -24,9 +24,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         min: 0,
       },
-      userId: {
-        type: Sequelize.INTEGER,
-      },
+      // userId: {
+      //   type: Sequelize.INTEGER,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
