@@ -13,6 +13,7 @@ module.exports = {
           password: bcrypt.hashSync("test1234", SALT_ROUNDS),
           createdAt: new Date(),
           updatedAt: new Date(),
+          isArtist: true,
         },
         {
           name: "dummy",
@@ -20,6 +21,7 @@ module.exports = {
           password: bcrypt.hashSync("dummy1234", SALT_ROUNDS),
           createdAt: new Date(),
           updatedAt: new Date(),
+          isArtist: false,
         },
       ],
       {}
