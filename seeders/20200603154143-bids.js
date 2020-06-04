@@ -41,7 +41,7 @@ module.exports = {
           id: 5,
           email: "ruma@sharmin.com",
           amount: 270,
-          artworkId: 3,
+          artworkId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

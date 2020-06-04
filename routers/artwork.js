@@ -1,11 +1,14 @@
 const { Router } = require("express");
 const Artwork = require("../models").artwork;
+const bid = require("../models").bid;
 
 const router = new Router();
 
 router.get("/", async (req, res, next) => {
   try {
-    const artworks = await Artwork.findAll();
+    const artworks = await Artwork.findAll({
+      include: { model: bid, attributes: ["amount"] },
+    });
     res.send(artworks);
   } catch (e) {
     next(e);
