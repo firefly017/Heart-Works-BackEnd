@@ -8,7 +8,7 @@ module.exports = {
         {
           id: 1,
           title: "Saihan's art",
-          imageUrl: "https://picsum.photos/200/300",
+          imageUrl: "https://picsum.photos/id/255/200/300",
           hearts: 0,
           minimumBid: 200,
           // userId: user1.id,
@@ -18,7 +18,7 @@ module.exports = {
         {
           id: 2,
           title: "Saariba's art",
-          imageUrl: "https://picsum.photos/200/300",
+          imageUrl: "https://picsum.photos/id/265/200/300",
           hearts: 0,
           minimumBid: 200,
           // userId: user2.id,
@@ -28,7 +28,7 @@ module.exports = {
         {
           id: 3,
           title: "Arka's art",
-          imageUrl: "https://picsum.photos/200/300",
+          imageUrl: "https://picsum.photos/id/237/200/300",
           hearts: 0,
           minimumBid: 200,
           // userId: user3.id,
