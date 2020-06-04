@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const Artwork = require("../models").artwork;
 const bid = require("../models").bid;
+const user = require("../models").user;
 
 const router = new Router();
 
@@ -9,6 +10,8 @@ router.get("/", async (req, res, next) => {
     const artworks = await Artwork.findAll({
       include: { model: bid, attributes: ["amount"] },
     });
+    const users = await user.findAll();
+    console.log(users);
     res.send(artworks);
   } catch (e) {
     next(e);
