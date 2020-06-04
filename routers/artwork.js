@@ -12,4 +12,13 @@ router.get("/", async (req, res, next) => {
   }
 }); // /artworks/ - GET
 
+router.get("/:id/", async (req, res, next) => {
+  try {
+    console.log(req.params.id + "from req");
+    const artWork = await Artwork.findByPk(req.params.id);
+    res.send(artWork);
+  } catch (e) {
+    next(e);
+  }
+});
 module.exports = router;
