@@ -27,4 +27,22 @@ router.get("/:id/", async (req, res, next) => {
     next(e);
   }
 });
+
+router.patch("/:id/", async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const artWork = await Artwork.findByPk(req.body.id);
+    const { title, imageUrl, hearts, minimumBid } = req.body;
+    console.log(imageUrl);
+    artWork.update({
+      title,
+      imageUrl,
+      hearts,
+      minimumBid,
+    });
+    res.send(artWork);
+  } catch (e) {
+    next(e);
+  }
+});
 module.exports = router;
