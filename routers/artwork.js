@@ -45,4 +45,23 @@ router.patch("/:id/", async (req, res, next) => {
     next(e);
   }
 });
+router.post("/bid/", async (req, res, next) => {
+  try {
+    console.log(req.body);
+    // const newBid = await bid.create(req.body);
+    const allBid = await bid.findAll();
+    console.log("length" + allBid.length);
+    const newBid = await bid.create({
+      id: allBid.length + 1,
+      email: req.body.email,
+      amount: req.body.amount,
+      artworkId: req.body.artworkId,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    res.send(newBid);
+  } catch (e) {
+    next(e);
+  }
+});
 module.exports = router;

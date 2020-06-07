@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const bid = sequelize.define(
     "bid",
     {
-      email: { type: DataTypes.STRING, allowNull: false, unique: true },
+      email: { type: DataTypes.STRING, allowNull: false },
       amount: { type: DataTypes.INTEGER, min: 0 }, //to prevent neg entry
     },
     {}
