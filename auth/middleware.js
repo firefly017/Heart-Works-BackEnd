@@ -4,7 +4,7 @@ const { toData } = require("./jwt");
 async function auth(req, res, next) {
   const auth =
     req.headers.authorization && req.headers.authorization.split(" ");
-
+  // console.log("what is auth", req.headers)
   if (!auth || !auth[0] === "Bearer" || !auth[1]) {
     res.status(401).send({
       message:

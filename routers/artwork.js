@@ -2,6 +2,7 @@ const { Router } = require("express");
 const Artwork = require("../models").artwork;
 const bid = require("../models").bid;
 const user = require("../models").user;
+const auth = require("../auth/middleware")
 
 const router = new Router();
 
@@ -28,7 +29,7 @@ router.get("/:id/", async (req, res, next) => {
   }
 });
 
-router.patch("/:id/", async (req, res, next) => {
+router.patch("/:id/",async (req, res, next) => {
   try {
     console.log(req.body);
     const artWork = await Artwork.findByPk(req.body.id);
@@ -45,12 +46,14 @@ router.patch("/:id/", async (req, res, next) => {
     next(e);
   }
 });
-router.post("/bid/", async (req, res, next) => {
+router.post("/bid/", auth, async (req, res, next) => {
   try {
-    console.log(req.body);
+    //req.user == does not exists
+    //with auth req.user does exists
+     console.log("what is???? ", req.user);
     // const newBid = await bid.create(req.body);
     const allBid = await bid.findAll();
-    console.log("length" + allBid.length);
+    // console.log("length" + allBid.length);
     const newBid = await bid.create({
       id: allBid.length + 1,
       email: req.body.email,
@@ -58,8 +61,17 @@ router.post("/bid/", async (req, res, next) => {
       artworkId: req.body.artworkId,
       createdAt: new Date(),
       updatedAt: new Date(),
+      userId: req.user.dataValues.id
     });
-    res.send(newBid);
+    const artworks = await Artwork.findAll({
+      include: { model: bid, attributes: ["id", "amount", "email"] },
+    });
+    const promiseAll = await Promise.all([newBid,artworks])
+    //res.send(newBid);
+    // const users = await user.findAll();
+    const data = promiseAll[1].map(result => result.dataValues)
+    res.send(data);
+   
   } catch (e) {
     next(e);
   }
